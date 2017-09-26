@@ -1,22 +1,24 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <string.h>
 #include "disemvowel.h"
 
 
-int countVowels(char* str){
-	int counter = 0;
-	for(unsigned i = 0; i < sizeof(str);i++){
-		if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u'){
-			counter++;
+char* trashVowels(char* str){
+    char*  withoutVowels;
+    withoutVowels = (char*)malloc(sizeof(str));
+    withoutVowels[0] = '\0';
+    unsigned i, j=0;
+	for(i = 0; i < sizeof(str);i++){
+		if(str[i] != 'a' || str[i] != 'e' || str[i] != 'i' || str[i] != 'o' || str[i] != 'u'){
+                    withoutVowels[j]=str[i];
+                    j++;
 		}
 	}
-	printf(counter + "");
-	return counter;
+        return withoutVowels;
 }
-
 			
 char* disemvowel(char* str) {
-//printf(countVowels(str) +"");
-  return (char*) "";
+return trashVowels(str);
+//return (char*) "";
 }
